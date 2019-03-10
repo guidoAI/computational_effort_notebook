@@ -5,7 +5,7 @@
 import cv2
 import time
 
-def run_detection():
+def run_detection(scale_factor = 1.1, min_neighbors = 5, min_size = 30):
     cap = cv2.VideoCapture(0)
     
     # Create the haar cascade
@@ -21,9 +21,9 @@ def run_detection():
     	# Detect faces in the image
     	faces = faceCascade.detectMultiScale(
     		gray,
-    		scaleFactor=1.1,
-    		minNeighbors=5,
-    		minSize=(30, 30)
+    		scaleFactor=scale_factor,
+    		minNeighbors=min_neighbors,
+    		minSize=(min_size, min_size)
     		#flags = cv2.CV_HAAR_SCALE_IMAGE
     	); end_time = time.time();
     
