@@ -7,6 +7,9 @@ import time
 
 def run_detection(scale_factor = 1.1, min_neighbors = 5, min_size = 30):
     cap = cv2.VideoCapture(0)
+    if(not cap.isOpened()):  
+        print('Video capture not initialized!');
+        return -1;
     
     # Create the haar cascade
     faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
